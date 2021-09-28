@@ -20,7 +20,8 @@ namespace RentalCarMvcProject.Controllers
         {
             var model = new CarImageViewModels() { 
             
-             Car=db.Cars.ToList()
+             Car=db.Cars.ToList(),
+              CarImages=new CarImages()
             
             };
             return View("Yeni", model);
@@ -28,6 +29,18 @@ namespace RentalCarMvcProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Kaydet(CarImages carImages)
         {
+            if (!ModelState.IsValid)
+            {
+                var model = new CarImageViewModels()
+                {
+
+                    Car = db.Cars.ToList(),
+                     CarImages=carImages
+                
+
+                };
+                return View("Yeni", model);
+            }
             if (carImages.Id == 0)
             {
                 db.CarImages.Add(carImages);

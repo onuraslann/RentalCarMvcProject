@@ -18,10 +18,12 @@ namespace RentalCarMvcProject.Controllers
         }
         public ActionResult Yeni()
         {
+            
             var model = new CarViewModels()
             {
                  Brands=db.Brands.ToList(),
-                  Colors=db.Colors.ToList()
+                  Colors=db.Colors.ToList(),
+                   Cars=new Cars()
 
             };
             return View("Yeni", model);
@@ -29,6 +31,17 @@ namespace RentalCarMvcProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Kaydet(Cars cars)
         {
+            if (!ModelState.IsValid)
+            {
+                var model = new CarViewModels()
+                {
+                    Brands = db.Brands.ToList(),
+                    Colors = db.Colors.ToList(),
+                    Cars=cars
+
+                };
+                return View("Yeni", model);
+            }
             if (cars.Id == 0)
             {
                 db.Cars.Add(cars);

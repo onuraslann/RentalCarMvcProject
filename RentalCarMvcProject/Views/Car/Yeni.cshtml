@@ -12,30 +12,42 @@
 
         @Html.LabelFor(m => m.Cars.BrandId)
         @Html.DropDownListFor(m => m.Cars.BrandId, new SelectList(Model.Brands, "BrandId", "BrandName"))
+        @Html.ValidationMessageFor(m => m.Cars.BrandId)
     </div>
     <div class="form-group" style="font-style:oblique">
 
         @Html.LabelFor(m => m.Cars.ColorId)
         @Html.DropDownListFor(m => m.Cars.ColorId, new SelectList(Model.Colors, "ColorId", "ColorName"))
+        @Html.ValidationMessageFor(m => m.Cars.ColorId)
     </div>
     <div class="form-group" style="font-style:oblique">
 
         @Html.LabelFor(m => m.Cars.Descriptions)
         @Html.TextBoxFor(m => m.Cars.Descriptions)
+        @Html.ValidationMessageFor(m => m.Cars.Descriptions)
     </div>
     <div class="form-group" style="font-style:oblique">
 
         @Html.LabelFor(m => m.Cars.ModelYear)
         @Html.TextBoxFor(m => m.Cars.ModelYear)
+        @Html.ValidationMessageFor(m => m.Cars.ModelYear)
     </div>
     <div class="form-group" style="font-style:oblique">
 
         @Html.LabelFor(m => m.Cars.DailyPrice)
         @Html.TextBoxFor(m => m.Cars.DailyPrice)
+        @Html.ValidationMessageFor(m => m.Cars.DailyPrice)
     </div>
     @Html.HiddenFor(m => m.Cars.Id)
     <button type="submit" class="btn btn-success">Kaydet</button>
 
 
 
+}
+@section Scripts{
+
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 }
