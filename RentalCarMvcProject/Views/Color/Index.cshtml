@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <a class="btn btn-success" href="/Color/Yeni">NewColor</a>
-<table class="table table-bordered" style="background-color:darkgrey" >
+<table class="table table-bordered" style="background-color:darkgrey" id="tblColor">
     <thead>
         <tr>
             <th>ColorId</th>
@@ -21,7 +21,7 @@
                 <td>@color.ColorId</td>
                 <td>@color.ColorName</td>
                 <td><a class="btn btn-primary" href="/Color/Update/@color.ColorId">Update</a></td>
-                <td><a class="btn btn-warning "href="/Color/Delete/@color.ColorId">Delete</a></td>
+                <td><a class="btn btn-warning btnColorDelete" data-id="@color.ColorId">Delete</a></td>
             </tr>
         }
     </tbody>

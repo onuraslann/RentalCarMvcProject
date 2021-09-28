@@ -7,7 +7,7 @@
 
 
 <a class="btn btn-success" href="/Brand/Yeni">NewBrand</a>
-<table class="table table-bordered" style="background-color:darkgrey">
+<table class="table table-bordered" style="background-color:darkgrey" id="tblBrand">
     <thead>
         <tr>
             <th>BrandId</th>
@@ -24,7 +24,7 @@
                 <td>@brand.BrandId</td>
                 <td>@brand.BrandName</td>
                 <td><a class="btn btn-primary" href="/Brand/Update/@brand.BrandId">Update</a></td>
-                <td><a class="btn btn-warning " href="/Brand/Delete/@brand.BrandId">Delete</a></td>
+                <td><a class="btn btn-warning btnBrandDelete" data-id="@brand.BrandId">Delete</a></td>
             </tr>
         }
     </tbody>

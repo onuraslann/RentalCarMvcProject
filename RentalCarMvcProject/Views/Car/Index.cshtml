@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <a class="btn btn-success" href="/Car/Yeni">NewCarImage</a>
-<table class="table table-bordered" style="background-color:darkgrey">
+<table class="table table-bordered" style="background-color:darkgrey" id="tblCar">
     <thead>
         <tr>
             <th>Id</th>
@@ -31,7 +31,7 @@
             <td>@car.Descriptions</td>
 
             <td><a class="btn btn-primary" href="/Car/Update/@car.Id">Update</a></td>
-            <td><a class="btn btn-warning " href="/Car/Delete/@car.Id">Delete</a></td>
+            <td><a class="btn btn-warning  btnCarDelete" data-id="@car.Id" >Delete</a></td>
         </tr>
         }
     </tbody>

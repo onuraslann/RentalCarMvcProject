@@ -5,7 +5,7 @@
 }
 
 <a class="btn btn-success" href="/Customer/Yeni">NewCustomer</a>
-<table class="table table-bordered" style="background-color:darkgrey">
+<table class="table table-bordered" style="background-color:darkgrey" id="tblCustomer">
     <thead>
         <tr>
             <th>Id</th>
@@ -22,7 +22,7 @@
                 <td>@customer.Id</td>
                 <td>@customer.CompanyName</td>
                 <td><a class="btn btn-primary" href="/Customer/Update/@customer.Id">Update</a></td>
-                <td><a class="btn btn-warning " href="/Customer/Delete/@customer.Id">Delete</a></td>
+                <td><a class="btn btn-warning btnCustomerDelete" data-id="@customer.Id">Delete</a></td>
             </tr>
         }
     </tbody>
