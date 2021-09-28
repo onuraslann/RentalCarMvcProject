@@ -20,6 +20,7 @@ namespace RentalCarMvcProject.Controllers
             return View("Yeni");
         }
 
+        [ValidateAntiForgeryToken]
         public ActionResult Kaydet(Customers customers)
         {
             if (customers.Id == 0)

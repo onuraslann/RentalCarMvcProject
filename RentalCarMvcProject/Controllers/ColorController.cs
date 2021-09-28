@@ -19,6 +19,7 @@ namespace RentalCarMvcProject.Controllers
         {
             return View("Yeni");
         }
+        [ValidateAntiForgeryToken]
         public ActionResult Kaydet(Colors colors)
         {
             if (colors.ColorId == 0)

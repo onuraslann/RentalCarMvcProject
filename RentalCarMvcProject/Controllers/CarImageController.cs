@@ -25,6 +25,7 @@ namespace RentalCarMvcProject.Controllers
             };
             return View("Yeni", model);
         }
+        [ValidateAntiForgeryToken]
         public ActionResult Kaydet(CarImages carImages)
         {
             if (carImages.Id == 0)

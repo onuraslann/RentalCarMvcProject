@@ -1,4 +1,5 @@
 ﻿using RentalCarMvcProject.Models.EntityFramework;
+using RentalCarMvcProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,52 +8,60 @@ using System.Web.Mvc;
 
 namespace RentalCarMvcProject.Controllers
 {
-    public class BrandController : Controller
+    public class CarController : Controller
     {
         RentalCarEntities db = new RentalCarEntities();
         public ActionResult Index()
         {
-            var model = db.Brands.ToList();
+            var model = db.Cars.ToList();
             return View(model);
         }
-
         public ActionResult Yeni()
         {
-            return View("Yeni");
+            var model = new CarViewModels()
+            {
+                 Brands=db.Brands.ToList(),
+                  Colors=db.Colors.ToList()
+
+            };
+            return View("Yeni", model);
         }
         [ValidateAntiForgeryToken]
-        public ActionResult Kaydet(Brands brands)
+        public ActionResult Kaydet(Cars cars)
         {
-            if (brands.BrandId == 0)
+            if (cars.Id == 0)
             {
-                db.Brands.Add(brands);
+                db.Cars.Add(cars);
             }
             else
             {
-                var updatedEntity = db.Entry(brands);
+                var updatedEntity = db.Entry(cars);
                 updatedEntity.State = System.Data.Entity.EntityState.Modified;
             }
             db.SaveChanges();
             return RedirectToAction("Index");
+        
         }
         public ActionResult Update(int id)
         {
-            var updatedModel = db.Brands.Find(id);
-            if (updatedModel == null)
+            var model = new CarViewModels()
             {
-                return HttpNotFound();
-            }
+                Brands = db.Brands.ToList(),
+                Colors = db.Colors.ToList(),
+                Cars=db.Cars.Find(id)
 
-            return View("Yeni", updatedModel);
+            };
+            return View("Yeni", model);
+
         }
         public ActionResult Delete(int id)
         {
-            var deletedModel = db.Brands.Find(id);
+            var deletedModel = db.Cars.Find(id);
             if (deletedModel == null)
             {
                 return HttpNotFound();
             }
-            db.Brands.Remove(deletedModel);
+            db.Cars.Remove(deletedModel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -3,7 +3,7 @@
     ViewBag.Title = "Yeni";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@Html.AntiForgeryToken()
 @using (Html.BeginForm("Kaydet", "CarImage", FormMethod.Post))
 {
     <div class="form-group" style="font-style:oblique">
