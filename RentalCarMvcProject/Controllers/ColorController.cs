@@ -17,11 +17,15 @@ namespace RentalCarMvcProject.Controllers
         }
         public ActionResult Yeni()
         {
-            return View("Yeni");
+            return View("Yeni",new Colors());
         }
         [ValidateAntiForgeryToken]
         public ActionResult Kaydet(Colors colors)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Yeni");
+            }
             if (colors.ColorId == 0)
             {
                 db.Colors.Add(colors);

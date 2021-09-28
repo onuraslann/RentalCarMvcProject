@@ -3,10 +3,11 @@
     ViewBag.Title = "Yeni";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Html.AntiForgeryToken()
+
 
 @using (Html.BeginForm("Kaydet", "Car", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
     <div class="form-group" style="font-style:oblique">
 
         @Html.LabelFor(m => m.Cars.BrandId)
@@ -32,7 +33,7 @@
         @Html.LabelFor(m => m.Cars.DailyPrice)
         @Html.TextBoxFor(m => m.Cars.DailyPrice)
     </div>
-    @Html.HiddenFor(m=>m.Cars.Id)
+    @Html.HiddenFor(m => m.Cars.Id)
     <button type="submit" class="btn btn-success">Kaydet</button>
 
 

@@ -17,12 +17,16 @@ namespace RentalCarMvcProject.Controllers
         }
         public ActionResult Yeni()
         {
-            return View("Yeni");
+            return View("Yeni",new Customers());
         }
 
         [ValidateAntiForgeryToken]
         public ActionResult Kaydet(Customers customers)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Yeni");
+            }
             if (customers.Id == 0)
             {
                 db.Customers.Add(customers);

@@ -3,15 +3,18 @@
     ViewBag.Title = "Yeni";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Html.AntiForgeryToken()
-@using (Html.BeginForm("Kaydet","Color",FormMethod.Post))
+
+
+@using (Html.BeginForm("Kaydet", "Color", FormMethod.Post))
 {
-<div class="form-group" style="font-style:oblique">
-    @Html.LabelFor(m => m.ColorName)
-    @Html.TextBoxFor(m => m.ColorName)
-</div>
-    @Html.HiddenFor(m=>m.ColorId)
-   
+    @Html.AntiForgeryToken()
+    <div class="form-group" style="font-style:oblique">
+        @Html.LabelFor(m => m.ColorName)
+        @Html.TextBoxFor(m => m.ColorName)
+        @Html.ValidationMessageFor(m => m.ColorName)
+    </div>
+    @Html.HiddenFor(m => m.ColorId)
+
     <button type="submit" class="btn btn-success">Kaydet</button>
 }
 

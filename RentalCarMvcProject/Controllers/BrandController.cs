@@ -18,11 +18,15 @@ namespace RentalCarMvcProject.Controllers
 
         public ActionResult Yeni()
         {
-            return View("Yeni");
+            return View("Yeni",new Brands());
         }
         [ValidateAntiForgeryToken]
         public ActionResult Kaydet(Brands brands)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Yeni");
+            }
             if (brands.BrandId == 0)
             {
                 db.Brands.Add(brands);

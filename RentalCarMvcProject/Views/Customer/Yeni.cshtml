@@ -3,14 +3,15 @@
     ViewBag.Title = "Yeni";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Html.AntiForgeryToken()
+
 @using (Html.BeginForm("Kaydet", "Customer", FormMethod.Post))
 {
-
+    @Html.AntiForgeryToken()
 
     <div class="form-group" style="font-style:oblique">
         @Html.LabelFor(m => m.CompanyName)
         @Html.TextBoxFor(m => m.CompanyName)
+        @Html.ValidationMessageFor(m => m.CompanyName)
     </div>
     @Html.HiddenFor(m => m.Id)
 
