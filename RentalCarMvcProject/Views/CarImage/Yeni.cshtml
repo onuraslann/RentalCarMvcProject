@@ -1,0 +1,27 @@
+﻿@model  RentalCarMvcProject.ViewModels.CarImageViewModels
+@{
+    ViewBag.Title = "Yeni";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Kaydet", "CarImage", FormMethod.Post))
+{
+    <div class="form-group" style="font-style:oblique">
+
+        @Html.LabelFor(m => m.CarImages.CarId)
+        @Html.DropDownListFor(m => m.CarImages.CarId, new SelectList(Model.Car, "Id", "Brands.BrandName"))
+    </div>
+    <div class="form-group" style="font-style:oblique">
+
+        @Html.LabelFor(m => m.CarImages.ImagePath)
+        @Html.TextBoxFor(m => m.CarImages.ImagePath)
+    </div>
+    <div class="form-group" style="font-style:oblique">
+
+        @Html.LabelFor(m => m.CarImages.Date)
+        @Html.TextBoxFor(m => m.CarImages.Date, new { type = "date" })
+    </div>
+    @Html.HiddenFor(m => m.CarImages.Id)
+
+    <button type="submit" class="btn btn-success">Kaydet</button>
+}

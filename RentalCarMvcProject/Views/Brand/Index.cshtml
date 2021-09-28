@@ -1,0 +1,32 @@
+﻿@model List<RentalCarMvcProject.Models.EntityFramework.Brands>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<a class="btn btn-success" href="/Brand/Yeni">NewBrand</a>
+<table class="table table-bordered" style="background-color:darkgrey">
+    <thead>
+        <tr>
+            <th>BrandId</th>
+            <th>BrandName</th>
+            <th>Update</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var brand in Model)
+        {
+            <tr>
+                <td>@brand.BrandId</td>
+                <td>@brand.BrandName</td>
+                <td><a class="btn btn-primary" href="/Brand/Update/@brand.BrandId">Update</a></td>
+                <td><a class="btn btn-warning " href="/Brand/Delete/@brand.BrandId">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

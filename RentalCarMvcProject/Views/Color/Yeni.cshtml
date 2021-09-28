@@ -1,0 +1,17 @@
+﻿@model RentalCarMvcProject.Models.EntityFramework.Colors
+@{
+    ViewBag.Title = "Yeni";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Kaydet","Color",FormMethod.Post))
+{
+<div class="form-group" style="font-style:oblique">
+    @Html.LabelFor(m => m.ColorName)
+    @Html.TextBoxFor(m => m.ColorName)
+</div>
+    @Html.HiddenFor(m=>m.ColorId)
+   
+    <button type="submit" class="btn btn-success">Kaydet</button>
+}
+

@@ -1,0 +1,37 @@
+﻿@model List<RentalCarMvcProject.Models.EntityFramework.CarImages>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<a class="btn btn-success" href="/CarImage/Yeni">NewCarImage</a>
+<table class="table table-bordered" style="background-color:darkgrey">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>CarName</th>
+            <th>ImagePath</th>
+            <th>Date</th>
+            <th>Update</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var carImage in Model)
+        {
+        <tr>
+            <td>@carImage.Id</td>
+            <td>@carImage.Cars.Brands.BrandName</td>
+            <td>@carImage.ImagePath</td>
+            <td>@carImage.Date.Value.ToString("dd-MM-yyyy")</td>
+            <td><a class="btn btn-primary" href="/CarImage/Update/@carImage.Id">Update</a></td>
+            <td><a class="btn btn-warning " href="/CarImage/Delete/@carImage.Id">Delete</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+

@@ -1,4 +1,5 @@
 ﻿using RentalCarMvcProject.Models.EntityFramework;
+using RentalCarMvcProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,27 +8,32 @@ using System.Web.Mvc;
 
 namespace RentalCarMvcProject.Controllers
 {
-    public class ColorController : Controller
+    public class CarImageController : Controller
     {
         RentalCarEntities db = new RentalCarEntities();
         public ActionResult Index()
         {
-            var model = db.Colors.ToList();
+            var model = db.CarImages.ToList();
             return View(model);
         }
         public ActionResult Yeni()
         {
-            return View("Yeni");
+            var model = new CarImageViewModels() { 
+            
+             Car=db.Cars.ToList()
+            
+            };
+            return View("Yeni", model);
         }
-        public ActionResult Kaydet(Colors colors)
+        public ActionResult Kaydet(CarImages carImages)
         {
-            if (colors.ColorId == 0)
+            if (carImages.Id == 0)
             {
-                db.Colors.Add(colors);
+                db.CarImages.Add(carImages);
             }
             else
             {
-                var updatedEntity = db.Entry(colors);
+                var updatedEntity = db.Entry(carImages);
                 updatedEntity.State = System.Data.Entity.EntityState.Modified;
             }
             db.SaveChanges();
@@ -35,22 +41,23 @@ namespace RentalCarMvcProject.Controllers
         }
         public ActionResult Update(int id)
         {
-            var updatedModel = db.Colors.Find(id);
-            if (updatedModel == null)
+            var model = new CarImageViewModels()
             {
-                return HttpNotFound();
-            }
-          
-            return View("Yeni",updatedModel);
+
+                Car = db.Cars.ToList(),
+                 CarImages=db.CarImages.Find(id)
+
+            };
+            return View("Yeni", model);
         }
         public ActionResult Delete(int id)
         {
-            var deletedModel = db.Colors.Find(id);
+            var deletedModel = db.CarImages.Find(id);
             if (deletedModel == null)
             {
                 return HttpNotFound();
             }
-            db.Colors.Remove(deletedModel);
+            db.CarImages.Remove(deletedModel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

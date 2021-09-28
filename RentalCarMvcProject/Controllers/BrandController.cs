@@ -7,27 +7,28 @@ using System.Web.Mvc;
 
 namespace RentalCarMvcProject.Controllers
 {
-    public class ColorController : Controller
+    public class BrandController : Controller
     {
         RentalCarEntities db = new RentalCarEntities();
         public ActionResult Index()
         {
-            var model = db.Colors.ToList();
+            var model = db.Brands.ToList();
             return View(model);
         }
+
         public ActionResult Yeni()
         {
             return View("Yeni");
         }
-        public ActionResult Kaydet(Colors colors)
+        public ActionResult Kaydet(Brands brands)
         {
-            if (colors.ColorId == 0)
+            if (brands.BrandId == 0)
             {
-                db.Colors.Add(colors);
+                db.Brands.Add(brands);
             }
             else
             {
-                var updatedEntity = db.Entry(colors);
+                var updatedEntity = db.Entry(brands);
                 updatedEntity.State = System.Data.Entity.EntityState.Modified;
             }
             db.SaveChanges();
@@ -35,22 +36,22 @@ namespace RentalCarMvcProject.Controllers
         }
         public ActionResult Update(int id)
         {
-            var updatedModel = db.Colors.Find(id);
+            var updatedModel = db.Brands.Find(id);
             if (updatedModel == null)
             {
                 return HttpNotFound();
             }
-          
-            return View("Yeni",updatedModel);
+
+            return View("Yeni", updatedModel);
         }
         public ActionResult Delete(int id)
         {
-            var deletedModel = db.Colors.Find(id);
+            var deletedModel = db.Brands.Find(id);
             if (deletedModel == null)
             {
                 return HttpNotFound();
             }
-            db.Colors.Remove(deletedModel);
+            db.Brands.Remove(deletedModel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

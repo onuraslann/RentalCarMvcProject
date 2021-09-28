@@ -1,0 +1,22 @@
+﻿@model RentalCarMvcProject.Models.EntityFramework.Customers
+@{
+    ViewBag.Title = "Yeni";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Kaydet", "Customer", FormMethod.Post))
+{
+
+
+    <div class="form-group" style="font-style:oblique">
+        @Html.LabelFor(m => m.CompanyName)
+        @Html.TextBoxFor(m => m.CompanyName)
+    </div>
+    @Html.HiddenFor(m => m.Id)
+
+    <button type="submit" class="btn btn-success">Kaydet</button>
+}
+
+
+
+

@@ -1,0 +1,30 @@
+﻿@model List<RentalCarMvcProject.Models.EntityFramework.Customers>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a class="btn btn-success" href="/Customer/Yeni">NewCustomer</a>
+<table class="table table-bordered" style="background-color:darkgrey">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>CompanyName</th>
+            <th>Update</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@customer.CompanyName</td>
+                <td><a class="btn btn-primary" href="/Customer/Update/@customer.Id">Update</a></td>
+                <td><a class="btn btn-warning " href="/Customer/Delete/@customer.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
