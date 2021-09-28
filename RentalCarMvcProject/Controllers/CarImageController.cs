@@ -22,6 +22,9 @@ namespace RentalCarMvcProject.Controllers
             
              Car=db.Cars.ToList(),
               CarImages=new CarImages()
+              
+
+              
             
             };
             return View("Yeni", model);

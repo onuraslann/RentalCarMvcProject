@@ -11,8 +11,7 @@ namespace RentalCarMvcProject.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Colors
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +21,6 @@ namespace RentalCarMvcProject.Models.EntityFramework
         }
     
         public int ColorId { get; set; }
-        [Required(ErrorMessage = "ColorName boþ geçilemez")]
         public string ColorName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -11,15 +11,11 @@ namespace RentalCarMvcProject.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class CarImages
     {
         public int Id { get; set; }
-        [Display(Name ="CarName")]
-        [Required(ErrorMessage ="CarName boþ geçilemez")]
         public Nullable<int> CarId { get; set; }
-        [Required(ErrorMessage = "CarName boþ geçilemez")]
         public string ImagePath { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
     

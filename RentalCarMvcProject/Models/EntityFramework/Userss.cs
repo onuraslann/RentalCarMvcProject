@@ -12,18 +12,11 @@ namespace RentalCarMvcProject.Models.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class Brands
+    public partial class Userss
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Brands()
-        {
-            this.Cars = new HashSet<Cars>();
-        }
-    
-        public int BrandId { get; set; }
-        public string BrandName { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cars> Cars { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Password { get; set; }
+        public string Role { get; set; }
     }
 }

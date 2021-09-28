@@ -11,8 +11,7 @@ namespace RentalCarMvcProject.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Cars
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,18 +22,10 @@ namespace RentalCarMvcProject.Models.EntityFramework
         }
     
         public int Id { get; set; }
-        [Display(Name ="BrandName")]
-        [Required(ErrorMessage ="BrandName boþ geçilemez")]
         public Nullable<int> BrandId { get; set; }
-        [Display(Name = "ColorName")]
-        [Required(ErrorMessage = "ColorName boþ geçilemez")]
         public Nullable<int> ColorId { get; set; }
-        [Required(ErrorMessage = "ModelYear boþ geçilemez")]
         public Nullable<int> ModelYear { get; set; }
-        [Required(ErrorMessage = "DailyPrice boþ geçilemez")]
-        [Range(80,750)]
         public Nullable<int> DailyPrice { get; set; }
-        [Required(ErrorMessage = "Descriptions boþ geçilemez")]
         public string Descriptions { get; set; }
     
         public virtual Brands Brands { get; set; }

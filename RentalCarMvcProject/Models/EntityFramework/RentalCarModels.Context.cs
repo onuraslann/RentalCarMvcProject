@@ -31,5 +31,6 @@ namespace RentalCarMvcProject.Models.EntityFramework
         public virtual DbSet<Colors> Colors { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Rentals> Rentals { get; set; }
+        public virtual DbSet<Userss> Userss { get; set; }
     }
 }

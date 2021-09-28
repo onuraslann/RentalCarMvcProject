@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace RentalCarMvcProject.Controllers
 {
+   
     public class BrandController : Controller
     {
         RentalCarEntities db = new RentalCarEntities();
