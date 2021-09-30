@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace RentalCarMvcProject.Controllers
 {
-   
+   [Authorize(Roles ="admin")]
     public class BrandController : Controller
     {
         RentalCarEntities db = new RentalCarEntities();

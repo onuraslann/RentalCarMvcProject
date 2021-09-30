@@ -6,7 +6,7 @@
 
 @using (Html.BeginForm("Kaydet", "Brand", FormMethod.Post))
 {
-    @Html.AntiForgeryToken()
+ @Html.AntiForgeryToken()
 
     <div class="form-group" style="font-style:oblique">
         @Html.LabelFor(m => m.BrandName)

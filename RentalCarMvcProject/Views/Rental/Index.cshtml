@@ -1,0 +1,37 @@
+﻿@model List<RentalCarMvcProject.Models.EntityFramework.Rentals>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<a class="btn btn-success" href="/Rental/Yeni">NewRental</a>
+<table class="table table-bordered" style="background-color:darkgrey" id="tblRentals">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>CarName</th>
+            <th>CustomerName</th>
+            <th>RentDate</th>
+            <th>ReturnDate</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rental in Model)
+        {
+            <tr>
+                <td>@rental.Id</td>
+                <td>@rental.Cars.Brands.BrandName</td>
+                <td>@rental.Customers.CompanyName</td>
+                <td>@rental.RentDate.Value.ToString("dd-MM-yyyy")</td>
+                <td>@rental.ReturnDate.Value.ToString("dd-MM-yyyy")</td>>
+                <td><a class="btn btn-primary" href="/Rental/Update/@rental.Id">Update</a></td>
+                <td><a class="btn btn-warning btnRentalsDelete " data-id="@rental.Id" >Delete</a></td>
+            </tr>
+
+        }
+    </tbody>
+</table>

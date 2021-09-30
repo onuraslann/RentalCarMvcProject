@@ -379,6 +379,7 @@
     <Compile Include="Controllers\CarImageController.cs" />
     <Compile Include="Controllers\ColorController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Controllers\UserssController.cs" />
     <Compile Include="Global.asax.cs">
@@ -421,8 +422,10 @@
       <DependentUpon>RentalCarModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\RentalRoleProvider.cs" />
     <Compile Include="ViewModels\CarImageViewModels.cs" />
     <Compile Include="ViewModels\CarViewModels.cs" />
+    <Compile Include="ViewModels\RentalViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -453,6 +456,8 @@
     <Content Include="Views\Userss\Edit.cshtml" />
     <Content Include="Views\Userss\Index.cshtml" />
     <Content Include="Views\Security\Login.cshtml" />
+    <Content Include="Views\Rental\Yeni.cshtml" />
+    <Content Include="Views\Rental\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

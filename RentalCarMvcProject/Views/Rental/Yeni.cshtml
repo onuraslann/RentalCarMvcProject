@@ -1,0 +1,40 @@
+﻿@model RentalCarMvcProject.ViewModels.RentalViewModels
+@{
+    ViewBag.Title = "Yeni";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Kaydet", "Rental", FormMethod.Post))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Rentals.CarId)
+        @Html.DropDownListFor(m => m.Rentals.CarId, new SelectList(Model.Cars, "Id", "Brands.BrandName"))
+        @Html.ValidationMessageFor(m => m.Rentals.CarId)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Rentals.CustomerId)
+        @Html.DropDownListFor(m => m.Rentals.CustomerId, new SelectList(Model.Customers, "Id", "CompanyName"))
+        @Html.ValidationMessageFor(m => m.Rentals.CustomerId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Rentals.RentDate)
+        @Html.TextBoxFor(m => m.Rentals.RentDate, new { type = "date" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Rentals.ReturnDate)
+        @Html.TextBoxFor(m => m.Rentals.ReturnDate, new { type = "date" })
+    </div>
+    @Html.HiddenFor(m => m.Rentals.Id)
+    <button type="submit" class="btn btn-success">Kaydet</button>
+}
+
+@section Scripts{
+
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+
